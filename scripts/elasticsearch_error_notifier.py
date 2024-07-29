@@ -80,7 +80,7 @@ def post_to_slack_and_mark_as_sent(errors):
             print(f"Failed to mark document as sent in Elasticsearch: {update_response.text}")
 
 
-if __name__ == "__main__":
+def main():
     print(f"Starting the error notifier service with fetch size: {fetch_size}")
     try:
         # TODO use scheduler instead
@@ -98,3 +98,7 @@ if __name__ == "__main__":
             sleep(SLEEP_BETWEEN_MESSAGES)
     except KeyboardInterrupt:
         logging.info("Error notifier service interrupted by user.")
+    
+
+if __name__ == "__main__":
+    main()
